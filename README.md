@@ -1,5 +1,5 @@
 # Androma testnet
-**androma** is a blockchain built using Cosmos SDK and Tendermint and created with [Ignite CLI](https://ignite.com/cli).
+**androma** is a blockchain built using Cosmos SDK and Tendermint and created with [Ignite CLI](https://ignite.com/cli) and the simple command "ignite scaffold chain androma --address-prefix andr"
 
 ## Get started
 Install the latest version of ignite
