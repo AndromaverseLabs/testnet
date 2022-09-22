@@ -1,0 +1,14 @@
+syntax = "proto3";
+package androma.androma;
+
+import "gogoproto/gogo.proto";
+import "androma/params.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "androma/x/androma/types";
+
+// GenesisState defines the androma module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  // this line is used by starport scaffolding # genesis/proto/state
+}
