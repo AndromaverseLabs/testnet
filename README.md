@@ -11,17 +11,28 @@ sudo su -c "echo 'fs.file-max = 65536' >> /etc/sysctl.conf"
 sudo sysctl -p
 ```
 
-Install go
+Install toolchain and ensure accurate time synchronization 
 ```
-# First remove any existing old Go installation
+sudo apt-get install make build-essential gcc git jq chrony -y
+```
+
+## Install go
+First remove any existing old Go installation
+```
 sudo rm -rf /usr/local/go
+```
 
-# Install the latest version of Go using this helpful script 
+Install the latest version of Go using this helpful script 
+```
 curl https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh | bash
-
+```
+Make go available for your complete system
+```
 sudo mv $HOME/.go /usr/local/
+```
 
-# Update environment variables to include go
+Update environment variables to include go
+```
 cat <<'EOF' >>$HOME/.profile
 export GOROOT=/usr/local/.go
 export GOPATH=$HOME/go
@@ -29,11 +40,15 @@ export GO111MODULE=on
 export PATH=$PATH:/usr/local/.go/bin:$HOME/go/bin
 EOF
 source $HOME/.profile
-
-go version
-# Should return go version go1.16.4 linux/amd64
 ```
 
+Check if everything went ok
+```
+go version
+```
+Should return go version go1.16.4 linux/amd64
+
+## Install Ignite
 Install the latest version of ignite
 ```
 git clone https://github.com/ignite/cli --depth=1
